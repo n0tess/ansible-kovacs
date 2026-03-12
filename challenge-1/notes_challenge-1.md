@@ -1,6 +1,6 @@
 ## Challenge 1 
 
-### Etape 1
+### Étape 1
 
 Démarrage de la VM ubuntu : 
 
@@ -8,7 +8,7 @@ Démarrage de la VM ubuntu :
 vagrant up ubuntu
 ```
 
-### Etape 2 
+### Étape 2 
 
 Connexion à la VM : 
 
@@ -16,7 +16,7 @@ Connexion à la VM :
 vagrant ssh ubuntu
 ```
 
-### Etape 3 
+### Étape 3 
 
 Mise à jour des informations des paquets :
 
@@ -24,7 +24,7 @@ Mise à jour des informations des paquets :
 sudo apt update
 ```
 
-### Etape 4 
+### Étape 4 
 
 Recherche du paquet Ansible :
 
@@ -32,7 +32,7 @@ Recherche du paquet Ansible :
 apt-cache search --names-only ansible
 ```
 
-### Etape 5 
+### Étape 5 
 
 Installation du paquet Ansible : 
 
@@ -40,7 +40,7 @@ Installation du paquet Ansible :
 sudo apt install ansible -y
 ```
 
-### Etape 6 
+### Étape 6 
 
 Vérification de la version d'Ansible :
 
@@ -49,7 +49,7 @@ ansible --version
     ansible 2.10.8
 ```
 
-### Etape 7
+### Étape 7
 
 Déconnexion puis suppression de la VM
 

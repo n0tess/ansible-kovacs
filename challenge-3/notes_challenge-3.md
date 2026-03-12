@@ -1,6 +1,6 @@
 ## Challenge 3
 
-### Etape 1
+### Étape 1
 
 Démarrage de la VM Rocky : 
 
@@ -8,7 +8,7 @@ Démarrage de la VM Rocky :
 vagrant up rocky
 ```
 
-### Etape 2 
+### Étape 2 
 
 Connexion à la VM : 
 
@@ -16,7 +16,7 @@ Connexion à la VM :
 vagrant ssh rocky
 ```
 
-### Etape 3
+### Étape 3
 
 Mise à jour des informations des paquets : 
 
@@ -24,7 +24,7 @@ Mise à jour des informations des paquets :
 sudo dnf update
 ```
 
-### Etape 4 
+### Étape 4 
 
 Ajout du dépôt tiers EPEL : 
 
@@ -36,15 +36,15 @@ puis activation du dépôt CRB :
 sudo crb enable
 ```
 
-### Etape 5
+### Étape 5
 
 Installation de PIP et Virtualenv :
 
 ```bash
-sudo dnf install -y python3-pip python3-virtualenv.noarch
+sudo dnf install -y python3-pip
 ```
 
-### Etape 6 
+### Étape 6 
 
 Initialisation de l'environnement Virtualenv :
 
@@ -52,7 +52,7 @@ Initialisation de l'environnement Virtualenv :
 python3 -m venv ~/.venv/ansible
 ```
 
-### Etape 7 
+### Étape 7 
 
 Démarrage du Virtualenv : 
 
@@ -85,7 +85,7 @@ Pour quitter le Venv :
 deactivate
 ```
 
-### Etape 8
+### Étape 8
 
 Suppression de la VM :
 

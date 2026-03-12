@@ -1,6 +1,6 @@
 ## Challenge 2 
 
-### Etape 1
+### Étape 1
 
 Démarrage de la VM ubuntu : 
 
@@ -8,7 +8,7 @@ Démarrage de la VM ubuntu :
 vagrant up ubuntu
 ```
 
-### Etape 2 
+### Étape 2 
 
 Connexion à la VM : 
 
@@ -16,7 +16,7 @@ Connexion à la VM :
 vagrant ssh ubuntu
 ```
 
-### Etape 3 
+### Étape 3 
 
 Configuration d'un dépôt PPA pour Ansible : 
 
@@ -24,7 +24,7 @@ Configuration d'un dépôt PPA pour Ansible :
 sudo apt-add-repository ppa:ansible/ansible
 ```
 
-### Etape 4
+### Étape 4
 
 Mise à jour des informations des paquets :
 
@@ -32,7 +32,7 @@ Mise à jour des informations des paquets :
 sudo apt-get update
 ```
 
-### Etape 5
+### Étape 5
 
 Installation d'Ansible en utilisant le dépôt PPA :
 
@@ -40,7 +40,7 @@ Installation d'Ansible en utilisant le dépôt PPA :
 sudo apt-get install ansible
 ```
 
-### Etape 6 
+### Étape 6 
 
 Vérification de la version d'Ansible :
 
@@ -51,7 +51,7 @@ ansible --version
 La version installée est plus récente que celle installée via le gestionnaire de paquet officiel. Cela est dû au fait que les développeurs peuvent proposer rapidement les versions récentes des logiciels. 
 
 
-### Etape 7
+### Étape 7
 
 Déconnexion puis suppression de la VM
 
