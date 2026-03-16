@@ -46,7 +46,7 @@ PING target03.sandbox.lan (192.168.56.40) 56(84) bytes of data.
 ```
 
 
-### Etape 3 
+### Étape 3 
 
 Configuration de l'authentification par clé SSH avec les trois *Target Hosts* : 
 
@@ -82,7 +82,7 @@ vagrant@target03's password: *******
 Number of key(s) added: 1
 ```
 
-### Etape 4
+### Étape 4
 
 Installation d'Ansible : 
 
@@ -97,7 +97,7 @@ $ ansible --version
     ansible 2.10.8
 ```
 
-### Etape 5
+### Étape 5
 
 Envoi d'un premier ping Ansible sans configuration : 
 
@@ -127,7 +127,7 @@ target03 | SUCCESS => {
 }
 ```
 
-### Etape 6
+### Étape 6
 
 Création d'un répertoire de projet `~/monprojet` :
 
@@ -135,7 +135,7 @@ Création d'un répertoire de projet `~/monprojet` :
 $ mkdir -v ~/monprojet
 ```
 
-### Etape 7
+### Étape 7
 
 Création d'un fichier vide `ansible.cfg` dans ce répertoire : 
 
@@ -143,13 +143,12 @@ Création d'un fichier vide `ansible.cfg` dans ce répertoire :
 $ touch ansible.cfg
 ```
 
-### Etape 8
+### Étape 8
 
 Vérification que ce fichier est bien pris en compte par Ansible : 
 
 ```
 $ ansible --version |  head -n 2
-
     ansible 2.10.8
         config file = /home/vagrant/monprojet/ansible.cfg
 
@@ -192,7 +191,7 @@ $ ansible --version | head -n 2
         config file = /home/vagrant/monprojet/ansible.cfg
 ```
 
-### Etape 9
+### Étape 9
 
 Spécification d'un inventaire nommé `hosts` : 
 
@@ -208,7 +207,7 @@ inventory = ./hosts
 ```
 
 
-### Etape 10 
+### Étape 10 
 
 Activation de la journalisation dans `~/journal/ansible.log` :
 
@@ -224,7 +223,7 @@ inventory = ./inventory
 log_path = ~/journal/ansible.log
 ```
 
-### Etape 11
+### Étape 11
 
 Test de la journalisation : 
 
@@ -256,7 +255,7 @@ $ cat ~/journal/ansible.log
 }
 ```
 
-### Etape 12 
+### Étape 12 
 
 Création d'un groupe `[testlab]` avec les trois *Target Hosts* dans le fichier `hosts`: 
 
@@ -267,7 +266,7 @@ target02
 target03
 ```
 
-### Etape 13
+### Étape 13
 
 Définition d'un utilisateur `vagrant` pour la connexion aux cibles dans le fichier `hosts` : 
 
@@ -277,7 +276,7 @@ ansible_python_interpreter=/usr/bin/python3
 ansible_user=vagrant
 ```
 
-### Etape 14 
+### Étape 14 
 
 Envoi d'un `ping` Ansible vers le groupe de machines `[all]` :
 
@@ -298,7 +297,7 @@ target01 | SUCCESS => {
 }
 ```
 
-### Etape 15 
+### Étape 15 
 
 Définition de l'élévation des droits pour l'utilisateur `vagrant` sur les *Target Hosts* dans le fichier `hosts` : 
 
@@ -307,7 +306,7 @@ Définition de l'élévation des droits pour l'utilisateur `vagrant` sur les *Ta
 ansible_become=yes
 ```
 
-### Etape 16 
+### Étape 16 
 
 Affichage de la première ligne du fichier `/etc/shadow` sur tous les *Target Hosts* : 
 
@@ -315,13 +314,11 @@ Affichage de la première ligne du fichier `/etc/shadow` sur tous les *Target Ho
 $ ansible all -a "head -n 1 /etc/shadow"
 
 target01 | CHANGED | rc=0 >> root:*:19977:0:99999:7:::
-target03 | CHANGED | rc=0 >>
-root:*:19977:0:99999:7:::
-target02 | CHANGED | rc=0 >>
-root:*:19977:0:99999:7:::
+target03 | CHANGED | rc=0 >> root:*:19977:0:99999:7:::
+target02 | CHANGED | rc=0 >> root:*:19977:0:99999:7:::
 ```
 
-### Etape 17 
+### Étape 17 
 
 Quittez le *Control Host* et supprimez toutes les VM de l'atelier : 
 
