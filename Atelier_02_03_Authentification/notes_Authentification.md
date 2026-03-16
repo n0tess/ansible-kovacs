@@ -111,7 +111,7 @@ target01 | SUCCESS => {
 Deuxième test sans utiliser l'option `-u vagrant` :
 
 ```
-ansible all -i target01,target02,target03 -m ping
+$ ansible all -i target01,target02,target03 -m ping
 
 target03 | SUCCESS => {
     "ansible_facts": {
@@ -136,8 +136,8 @@ target01 | SUCCESS => {
 }
 ```
 
-Suppresion des VM :
+Suppression des VM :
 
 ```
-vagrant destroy -f
+$ vagrant destroy -f
 ```
