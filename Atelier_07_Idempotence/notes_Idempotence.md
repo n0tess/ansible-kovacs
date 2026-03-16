@@ -241,5 +241,5 @@ rocky | CHANGED | rc=0 | (stdout) Filesystem        Size  Used Avail Use% Mounte
 suse | CHANGED | rc=0 | (stdout) Filesystem     Size  Used Avail Use% Mounted on\n/dev/sda3        64G  2.4G   58G   4% /
 ```
 
-Je remarque que Rocky et Suse utilisent des partitions standards tandis que Debian utilise le LVM. 
+Je remarque que pour cette commande il n'y a pas d'idempotence.
 
