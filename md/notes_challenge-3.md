@@ -4,7 +4,7 @@
 
 Démarrage de la VM Rocky : 
 
-```
+```console
 $ vagrant up rocky
 ```
 
@@ -12,7 +12,7 @@ $ vagrant up rocky
 
 Connexion à la VM : 
 
-```
+```console
 $ vagrant ssh rocky
 ```
 
@@ -20,7 +20,7 @@ $ vagrant ssh rocky
 
 Mise à jour des informations des paquets : 
 
-```
+```console
 $ sudo dnf update
 ```
 
@@ -28,7 +28,7 @@ $ sudo dnf update
 
 Ajout du dépôt tiers EPEL : 
 
-```
+```console
 $ sudo dnf install -y epel-release
 ```
 puis activation du dépôt CRB :
@@ -40,7 +40,7 @@ $ sudo crb enable
 
 Installation de PIP et Virtualenv :
 
-```
+```console
 $ sudo dnf install -y python3-pip
 ```
 
@@ -48,7 +48,7 @@ $ sudo dnf install -y python3-pip
 
 Initialisation de l'environnement Virtualenv :
 
-```
+```console
 $ python3 -m venv ~/.venv/ansible
 ```
 
@@ -56,32 +56,32 @@ $ python3 -m venv ~/.venv/ansible
 
 Démarrage du Virtualenv : 
 
-```
+```console
 $ source ~/.venv/ansible/bin/activate
 ```
 
 Mise à jour de PIP :
 
-```
+```console
 $ pip install --upgrade pip
 ```
 
 Installation d'Ansible :
 
-```
+```console
 $ pip install ansible
 ```
 
 Vérification de la version : 
 
-```
+```console
 $ ansible --version
     ansible [core 2.15.13]
 ```
 
 Pour quitter le Venv : 
 
-```
+```console
 $ deactivate
 ```
 
@@ -89,7 +89,7 @@ $ deactivate
 
 Suppression de la VM :
 
-```
+```console
 $ vagrant destroy -f rocky
 ```
 

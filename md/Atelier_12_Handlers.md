@@ -4,7 +4,7 @@
 
 Test de la connectivité aux cibles :
 
-```
+```console
 $ ansible redhat -m ping
 
 target03 | SUCCESS => {

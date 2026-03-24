@@ -4,7 +4,7 @@
 
 Démarrage de la VM ubuntu : 
 
-```
+```console
 $ vagrant up ubuntu
 ```
 
@@ -12,7 +12,7 @@ $ vagrant up ubuntu
 
 Connexion à la VM : 
 
-```
+```console
 $ vagrant ssh ubuntu
 ```
 
@@ -20,7 +20,7 @@ $ vagrant ssh ubuntu
 
 Mise à jour des informations des paquets :
 
-```
+```console
 $ sudo apt update
 ```
 
@@ -28,7 +28,7 @@ $ sudo apt update
 
 Recherche du paquet Ansible :
 
-```
+```console
 $ apt-cache search --names-only ansible
 ```
 
@@ -36,7 +36,7 @@ $ apt-cache search --names-only ansible
 
 Installation du paquet Ansible : 
 
-```
+```console
 $ sudo apt install ansible -y
 ```
 
@@ -44,7 +44,7 @@ $ sudo apt install ansible -y
 
 Vérification de la version d'Ansible :
 
-```
+```console
 $ ansible --version 
     ansible 2.10.8
 ```
@@ -53,7 +53,7 @@ $ ansible --version
 
 Déconnexion puis suppression de la VM
 
-```
+```console
 $ exit
 $ vagrant destroy -f ubuntu
 ```

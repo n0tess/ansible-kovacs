@@ -4,7 +4,7 @@
 
 Installation successive des paquets `tree`, `git` et `nmap` sur toutes les cibles en se plaçant dans le dossier `ansible/projects/ema/` : 
 
-```
+```console
 $ ansible all -m package -a "name=tree,git,nmap"
 ```
 
@@ -12,7 +12,7 @@ Installe correctement les paquets sur tous les `Target Hosts`.
 
 Deuxième installation pour voir ce qu'il se passe : 
 
-```
+```console
 $ ansible all -m package -a "name=tree,git,nmap"
 
 suse | SUCCESS => {
@@ -45,7 +45,7 @@ Ansible affiche des `SUCCESS` au lieu de redémarrer l'installation des paquets.
 
 Désinstallation successive de ces trois paqutes : 
 
-```
+```console
 $ ansible all -m package -a "name=tree,git,nmap state=absent"
 ```
 
@@ -53,7 +53,7 @@ Les paquets sont bien désinstallés sur tous les `Target Hosts`.
 
 Deuxième désinstallation pour voir ce qu'il se passe : 
 
-```
+```console
 $ ansible all -m package -a "name=tree,git,nmap state=absent"
 
 suse | SUCCESS => {
@@ -84,7 +84,7 @@ Ansible affiche aussi un `SUCCESS`.
 
 Copie du fichier `/etc/fstab` du *Control Host* vers tous les *Target Hosts* sous forme d'un fichier `/tmp/test3.txt` : 
 
-```
+```console
 $ ansible all -m copy -a "src=/etc/fstab dest=/tmp/test3.txt"
 
 debian | CHANGED => {
@@ -134,7 +134,7 @@ rocky | CHANGED => {
 
 Deuxième copie pour voir ce qu'il se passe :
 
-```
+```console
 $ ansible all -m copy -a "src=/etc/fstab dest=/tmp/test3.txt"
 
 rocky | SUCCESS => {
@@ -185,7 +185,7 @@ Ansible ne copie pas une seconde fois le fichier mais affiche un `SUCCESS`.
 
 Suppression du fichier `/tmp/test3.txt` sur les *Target Hosts* : 
 
-```
+```console
 $ ansible all -m file -a "dest=/tmp/test3.txt state=absent"
 
 debian | CHANGED => {
@@ -207,7 +207,7 @@ suse | CHANGED => {
 
 Deuxième suppression pour voir ce qu'il se passe :
 
-```
+```console
 $ ansible all -m file -a "dest=/tmp/test3.txt state=absent"
 
 suse | SUCCESS => {
@@ -233,7 +233,7 @@ Comme d'habitude, affichage de `SUCCESS`.
 
 Affichage de l'espace utilisé par la partition principale sur tous les *Target Hosts* : 
 
-```
+```console
 $ ansible all -m command -a "df -h /"
 
 debian | CHANGED | rc=0 | (stdout) Filesystem       Size  Used Avail Use% Mounted on\n/dev/mapper/debian--12--vg-root   62G  1.7G   57G   3% /

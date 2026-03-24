@@ -4,7 +4,7 @@
 
 Test de la connectivité aux cibles :
 
-```
+```console
 $ ansible testing -m ping
 
 rocky | SUCCESS => {

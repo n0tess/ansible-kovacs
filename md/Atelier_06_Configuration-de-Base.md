@@ -4,13 +4,13 @@
 
 Démarrage des VM :
 
-```
+```console
 $ vagrant up
 ```
 
 Connexion au *Control Host* :
 
-```
+```console
 $ vagrant ssh control
 ```
 
@@ -18,7 +18,7 @@ $ vagrant ssh control
 
 Édition du fichier `/etc/hosts` de manière à ce que les *Target Hosts* soient joignables par leur nom d'hôte :
 
-```
+```console
 # /etc/hosts
 192.168.56.10  control.sandbox.lan    control
 192.168.56.20  target01.sandbox.lan      target01
@@ -28,13 +28,13 @@ $ vagrant ssh control
 
 Vérification de la connectivité : 
 
-```
+```console
 $ for HOST in target01 target02 target03; do ping -c 1 -q $HOST; done
 ```
 
 Résultat : 
 
-```
+```console
 PING target01.sandbox.lan (192.168.56.20) 56(84) bytes of data.
 1 packets transmitted, 1 received, 0% packet loss, time 0ms
 
@@ -52,7 +52,7 @@ Configuration de l'authentification par clé SSH avec les trois *Target Hosts* :
 
 Collection des clés SSH publiques des Target Hosts : 
 
-```
+```console
 $ ssh-keyscan -t rsa target01 target02 target03 >> .ssh/known_hosts
 # target03:22 SSH-2.0-OpenSSH_8.9p1 Ubuntu-3ubuntu0.13
 # target01:22 SSH-2.0-OpenSSH_8.9p1 Ubuntu-3ubuntu0.13
@@ -61,13 +61,13 @@ $ ssh-keyscan -t rsa target01 target02 target03 >> .ssh/known_hosts
 
 Mise en place de l'authentification par clé SSH depuis le Control Host : 
 
-```
+```console
 $ ssh-keygen
 ```
 
 Distribution de la clé publique sur les Target Hosts en fournissant à chaque fois le mot de passe `vagrant` :
 
-```
+```console
 $ ssh-copy-id vagrant@target01
 ...
 vagrant@target01's password: *******
@@ -86,13 +86,13 @@ Number of key(s) added: 1
 
 Installation d'Ansible : 
 
-```
+```console
 $ sudo apt update && sudo apt install -y ansible && sudo apt install -y direnv
 ```
 
 Vérification de la version installée : 
 
-```
+```console
 $ ansible --version
     ansible 2.10.8
 ```
@@ -101,7 +101,7 @@ $ ansible --version
 
 Envoi d'un premier ping Ansible sans configuration : 
 
-```
+```console
 $ ansible all -i target01,target02,target03 -m ping
 
 target02 | SUCCESS => {
@@ -131,7 +131,7 @@ target03 | SUCCESS => {
 
 Création d'un répertoire de projet `~/monprojet` :
 
-```
+```console
 $ mkdir -v ~/monprojet
 ```
 
@@ -139,7 +139,7 @@ $ mkdir -v ~/monprojet
 
 Création d'un fichier vide `ansible.cfg` dans ce répertoire : 
 
-```
+```console
 $ touch ansible.cfg
 ```
 
@@ -147,7 +147,7 @@ $ touch ansible.cfg
 
 Vérification que ce fichier est bien pris en compte par Ansible : 
 
-```
+```console
 $ ansible --version |  head -n 2
     ansible 2.10.8
         config file = /home/vagrant/monprojet/ansible.cfg
@@ -156,7 +156,7 @@ $ ansible --version |  head -n 2
 
 Activation de Direnv :
 
-```
+```console
 $ echo 'eval "$(direnv hook bash)"' >> ~/.bashrc
 
 $ source ~/.bashrc
@@ -165,7 +165,7 @@ $ source ~/.bashrc
 
 Création d'un fichier `.envrc` à la racine du projet pour utiliser identifier mon fichier de configuration : 
 
-```
+```console
 ~/monprojet/.envrc
 
 export ANSIBLE_CONFIG=$(expand_path ansible.cfg)
@@ -173,7 +173,7 @@ export ANSIBLE_CONFIG=$(expand_path ansible.cfg)
 
 Autorisation de l'utilisation de la variable d'environnement : 
 
-```
+```console
 $ direnv allow
 
 direnv: loading ~/monprojet/.envrc
@@ -182,7 +182,7 @@ direnv: export ~ANSIBLE_CONFIG
 
 Vérification de la bonne prise en compte de mon fichier `ansible.cfg`
 
-```
+```console
 $ pwd
 /home/vagrant/monprojet
 
@@ -195,13 +195,13 @@ $ ansible --version | head -n 2
 
 Spécification d'un inventaire nommé `hosts` : 
 
-```
+```console
 $ touch hosts
 ```
 
 Ajout de la directive dans le fichier `ansible.cfg` : 
 
-```
+```conf
 [defaults]
 inventory = ./hosts
 ```
@@ -211,13 +211,13 @@ inventory = ./hosts
 
 Activation de la journalisation dans `~/journal/ansible.log` :
 
-```
+```console
 $ mkdir -v ~/journal
 ```
 
 Définition de la journalisation dans `ansible.cfg` : 
 
-```
+```conf
 [defaults]
 inventory = ./inventory
 log_path = ~/journal/ansible.log
@@ -227,7 +227,7 @@ log_path = ~/journal/ansible.log
 
 Test de la journalisation : 
 
-```
+```console
 $ ansible all -i target01,target02,target03 -m ping
 ...
 $ cat ~/journal/ansible.log
@@ -259,7 +259,7 @@ $ cat ~/journal/ansible.log
 
 Création d'un groupe `[testlab]` avec les trois *Target Hosts* dans le fichier `hosts`: 
 
-```
+```conf
 [testlab]
 target01
 target02
@@ -270,7 +270,7 @@ target03
 
 Définition d'un utilisateur `vagrant` pour la connexion aux cibles dans le fichier `hosts` : 
 
-```
+```conf
 [testlab:vars]
 ansible_python_interpreter=/usr/bin/python3
 ansible_user=vagrant
@@ -280,7 +280,7 @@ ansible_user=vagrant
 
 Envoi d'un `ping` Ansible vers le groupe de machines `[all]` :
 
-```
+```console
 $ ansible all -m ping
 
 target02 | SUCCESS => {
@@ -301,7 +301,7 @@ target01 | SUCCESS => {
 
 Définition de l'élévation des droits pour l'utilisateur `vagrant` sur les *Target Hosts* dans le fichier `hosts` : 
 
-```
+```conf
 [testlab:vars]
 ansible_become=yes
 ```
@@ -310,7 +310,7 @@ ansible_become=yes
 
 Affichage de la première ligne du fichier `/etc/shadow` sur tous les *Target Hosts* : 
 
-```
+```console
 $ ansible all -a "head -n 1 /etc/shadow"
 
 target01 | CHANGED | rc=0 >> root:*:19977:0:99999:7:::
@@ -322,7 +322,7 @@ target02 | CHANGED | rc=0 >> root:*:19977:0:99999:7:::
 
 Quittez le *Control Host* et supprimez toutes les VM de l'atelier : 
 
-```
+```console
 $ exit
 
 $ vagrant destroy -f

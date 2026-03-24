@@ -4,7 +4,7 @@
 
 Démarrage de la VM ubuntu : 
 
-```
+```console
 $ vagrant up ubuntu
 ```
 
@@ -12,7 +12,7 @@ $ vagrant up ubuntu
 
 Connexion à la VM : 
 
-```
+```console
 $ vagrant ssh ubuntu
 ```
 
@@ -20,7 +20,7 @@ $ vagrant ssh ubuntu
 
 Configuration d'un dépôt PPA pour Ansible : 
 
-```
+```console
 $ sudo apt-add-repository ppa:ansible/ansible
 ```
 
@@ -28,7 +28,7 @@ $ sudo apt-add-repository ppa:ansible/ansible
 
 Mise à jour des informations des paquets :
 
-```
+```console
 $ sudo apt-get update
 ```
 
@@ -36,7 +36,7 @@ $ sudo apt-get update
 
 Installation d'Ansible en utilisant le dépôt PPA :
 
-```
+```console
 $ sudo apt-get install ansible
 ```
 
@@ -44,7 +44,7 @@ $ sudo apt-get install ansible
 
 Vérification de la version d'Ansible :
 
-```
+```console
 $ ansible --version 
     ansible [core 2.17.14]
 ```
@@ -55,7 +55,7 @@ La version installée est plus récente que celle installée via le gestionnaire
 
 Déconnexion puis suppression de la VM
 
-```
+```console
 $ exit
 $ vagrant destroy -f ubuntu
 ```

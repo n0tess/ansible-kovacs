@@ -4,13 +4,13 @@
 
 Démarrage des VM :
 
-```
+```console
 $ vagrant up
 ```
 
 Connexion au Control Host : 
 
-```
+```console
 $ vagrant ssh control
 ```
 
@@ -20,7 +20,7 @@ Voici les étapes nécessaires pour réussir un `ping`:
 
 Edition du fichier `/etc/hosts` :
 
-```
+```console
 # /etc/hosts
 127.0.0.1      localhost.localdomain  localhost
 192.168.56.10  control.sandbox.lan    control
@@ -31,13 +31,13 @@ Edition du fichier `/etc/hosts` :
 
 Vérification de la connectivité : 
 
-```
+```console
 $ for HOST in target01 target02 target03; do ping -c 1 -q $HOST; done
 ```
 
 Résultat : 
 
-```
+```console
 PING target01.sandbox.lan (192.168.56.20) 56(84) bytes of data.
 1 packets transmitted, 1 received, 0% packet loss, time 0ms
 
@@ -50,7 +50,7 @@ PING target03.sandbox.lan (192.168.56.40) 56(84) bytes of data.
 
 Collection des clés SSH publiques des Target Hosts : 
 
-```
+```console
 $ ssh-keyscan -t rsa target01 target02 target03 >> .ssh/known_hosts
 # target03:22 SSH-2.0-OpenSSH_8.9p1 Ubuntu-3ubuntu0.13
 # target01:22 SSH-2.0-OpenSSH_8.9p1 Ubuntu-3ubuntu0.13
@@ -59,13 +59,13 @@ $ ssh-keyscan -t rsa target01 target02 target03 >> .ssh/known_hosts
 
 Mise en place de l'authentification par clé SSH depuis le Control Host : 
 
-```
+```console
 $ ssh-keygen
 ```
 
 Distribution de la clé publique sur les Target Hosts en fournissant à chaque fois le mot de passe `vagrant` :
 
-```
+```console
 $ ssh-copy-id vagrant@target01
 ...
 vagrant@target01's password: *******
@@ -82,7 +82,7 @@ Number of key(s) added: 1
 
 Test du fonctionnement de l'authentification sur les Target Hosts : 
 
-```
+```console
 $ ansible all -i target01,target02,target03 -u vagrant -m ping
 
 target02 | SUCCESS => {
@@ -110,7 +110,7 @@ target01 | SUCCESS => {
 
 Deuxième test sans utiliser l'option `-u vagrant` :
 
-```
+```console
 $ ansible all -i target01,target02,target03 -m ping
 
 target03 | SUCCESS => {
@@ -138,6 +138,6 @@ target01 | SUCCESS => {
 
 Suppression des VM :
 
-```
+```console
 $ vagrant destroy -f
 ```
