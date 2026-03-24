@@ -27,7 +27,7 @@ Création du playbook `apache-debian.yml` dans `ansible/projects/ema/playbooks`
 
 Voici le playbook `apache-debian.yml` :
 
-```
+```yaml
 ---  # apache-debian.yml
 
 - hosts: debian
@@ -77,7 +77,7 @@ Création du playbook `apache-rocky.yml` dans `ansible/projects/ema/playbooks`
 
 Voici le playbook `apache-rocky.yml` :
 
-```
+```yaml
 ---  # apache-rocky.yml
 
 - hosts: rocky
@@ -122,7 +122,7 @@ Création du playbook `apache-suse.yml` dans `ansible/projects/ema/playbooks`
 
 Voici le playbook `apache-suse.yml` :
 
-```
+```yaml
 ---  # apache-suse.yml
 
 - hosts: suse
