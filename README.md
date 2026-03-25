@@ -8,5 +8,5 @@
 [Atelier-06](md/Atelier_06_Configuration-de-Base.md)  
 [Atelier-07](md/Atelier_07_Idempotence.md)  
 [Atelier-10](md/Atelier_10_Serveur_Web_Simple.md)  
-[Atelier-12](md/Atelier_12_Handlers.md)
-[Atelier-14](md/Aterlier_14_Variables.md)
+[Atelier-12](md/Atelier_12_Handlers.md)  
+[Atelier-14](md/Aterlier_14_Variables.md)  
