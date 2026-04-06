@@ -13,3 +13,4 @@
 [Atelier-15](md/Atelier_15_Variables_enregistrees.md)  
 [Atelier-16](md/Atelier_16_Facts_variables_implicites.md)   
 [Atelier-17](md/Atelier_17_Cibles_heterogenes.md)   
+[Atelier-18](md/Atelier_18_Jinja.md)  

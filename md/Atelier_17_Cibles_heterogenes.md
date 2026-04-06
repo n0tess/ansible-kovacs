@@ -127,7 +127,7 @@ Pour Debian :
 
 chrony_package_name: chrony
 chrony_service_name: chrony
-chrony_confdir_path: /etc
+chrony_confdir_path: /etc/chrony
 
 ...
 ```
@@ -139,7 +139,7 @@ Pour Ubuntu :
 
 chrony_package_name: chrony
 chrony_service_name: chrony
-chrony_confdir_path: /etc
+chrony_confdir_path: /etc/chrony
 
 ...
 ```
